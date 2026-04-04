@@ -7,7 +7,7 @@ function AddTransactionForm() {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const dispatch = useDispatch();
-  const role = useSelector((state) => state.finance.role);
+  //const role = useSelector((state) => state.finance.role);
 
   // if (role !== "admin") {
   //   return <p>You do not have permission to add transactions.</p>;
