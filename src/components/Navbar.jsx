@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+
 function Navbar() {
   const role = useSelector((state) => state.finance.role);
   const dispatch = useDispatch();
@@ -8,14 +9,13 @@ function Navbar() {
   const handleRoleChange = (e) => {
     dispatch({ type: "finance/setRole", payload: e.target.value });
   };
-
   return (
-    <nav className="w-full bg-white shadow-md px-6 py-3 flex items-center justify-between">
-      <h2 className="text-xl font-semibold text-gray-800">
+    <nav className="w-full bg-white shadow-md px-6 py-3 items-center justify-between flex justify-between items-center p-4 bg-white  ">
+      <h2 className="text-xl font-semibold text-gray-800 dark:text-white-500">
         💰 Finance Tracker
       </h2>
       <div className="flex items-center gap-3">
-        <label className="text-sm font-medium text-gray-600">
+        <label className="text-sm font-medium text-gray-600 dark:text-white-400">
           Role:
         </label>
 

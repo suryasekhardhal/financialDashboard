@@ -11,8 +11,9 @@ function Dashboard(){
     const role = useSelector((state) => state.finance.role);
     return(
         <>
-        <h2 className="text-center">Dashboard</h2>
-       <div className="text-blue-500 p-4 space-y-6">
+       
+       <div className="p-4 space-y-6 min-h-screen bg-white ">
+         <h2 className="text-center">Dashboard</h2>
         <Navbar />
         <SummaryCards />
         <Chart />

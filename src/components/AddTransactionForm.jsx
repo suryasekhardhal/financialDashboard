@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { addTransaction } from "../features/financeSlice";
 function AddTransactionForm() {
   const [date, setDate] = useState("");
@@ -7,11 +7,7 @@ function AddTransactionForm() {
   const [category, setCategory] = useState("");
   const [type, setType] = useState("");
   const dispatch = useDispatch();
-  //const role = useSelector((state) => state.finance.role);
 
-  // if (role !== "admin") {
-  //   return <p>You do not have permission to add transactions.</p>;
-  // }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,7 +26,7 @@ function AddTransactionForm() {
   return (
     <>
     <h2>Add Transaction Form</h2>
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="bg-white dark:bg-gray-800 p-4 rounded-lg">
       <div>
         <label>Date:</label>
         <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />

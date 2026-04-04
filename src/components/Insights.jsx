@@ -19,7 +19,7 @@ function Insights() {
   return (
     <>
     <h2>Insights</h2>
-    <div>
+    <div className="bg-white p-4 rounded-lg">
       {Object.entries(categoryTotals).map(([category, total]) => (
         <p key={category}>
           {category}: ${total.toFixed(2)}

@@ -23,7 +23,7 @@ function TransactionsTable() {
     <h2>Transactions Table</h2>
     <div>
       <input type="text" placeholder="Search..." value={searchTerm} onChange={(e) => dispatch(setSearchTerm(e.target.value))} />
-      <table className="transactions-table">
+      <table className="transactions-table bg-white p-4 rounded-lg text-black w-full mt-4 text-center">
         <thead>
             <tr>
                 <th>Date</th>
