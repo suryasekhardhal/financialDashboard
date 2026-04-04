@@ -7,11 +7,11 @@ This project helps users track financial activity, visualize spending patterns, 
 
 ## 🚀 Live Demo
 
-👉 https://your-deployment-link.com
+👉 https://rococo-semifreddo-2d79c1.netlify.app/
 
 ## 📂 Repository
 
-👉 https://github.com/your-username/finance-dashboard
+👉 https://github.com/suryasekhardhal/financialDashboard
 
 ---
 
