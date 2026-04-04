@@ -3,7 +3,8 @@ import { ROLES } from "../constants/roles";
 
 const initialState = {
  
-  transactions: [{ id: nanoid(), date:Date.now(), amount: 10000, category: "food", type: "expense" }],
+  transactions: [{ id: nanoid(), date:Date.now(), amount: 1000000, category: "salary", type: "income" },
+    { id: nanoid(), date:Date.now(), amount: 500000, category: "rent", type: "expense" }],
   role:ROLES.VIEWER,
   searchTerm:""
 };
