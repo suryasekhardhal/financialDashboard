@@ -17,6 +17,14 @@ function AddTransactionForm() {
       alert("Please enter a valid positive number for amount.");
       return;
     }
+    if(!type) {
+      alert("Please select a transaction type (Income or Expense).");
+      return;
+    }
+    if(!category.trim()) {
+      alert("Please enter a category for the transaction.");
+      return;
+    }
     dispatch(addTransaction({ date, amount, category, type }));
     setDate("");
     setAmount("");
