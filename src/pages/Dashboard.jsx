@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Navbar from "../components/Navbar";
 import SummaryCards from "../components/SummaryCards";
 import TransactionsTable from "../components/TransactionsTable";
@@ -7,6 +8,7 @@ import AddTransactionForm from "../components/AddTransactionForm";
 import Chart from "../components/chart";
 
 function Dashboard(){
+    const role = useSelector((state) => state.finance.role);
     return(
         <>
         <h2 className="text-center">Dashboard</h2>
@@ -16,7 +18,7 @@ function Dashboard(){
         <Chart />
         <TransactionsTable />
         <Insights />
-        <AddTransactionForm />
+        {role === "admin" && <AddTransactionForm />}
        </div>
         </>
     )
