@@ -15,8 +15,12 @@ function AddTransactionForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const amountValue = parseFloat(amount);
+    if (isNaN(amountValue) || amountValue <= 0) {
+      alert("Please enter a valid positive number for amount.");
+      return;
+    }
     dispatch(addTransaction({ date, amount, category, type }));
-    // Clear form fields after submission
     setDate("");
     setAmount("");
     setCategory("");

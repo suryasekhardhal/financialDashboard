@@ -1,9 +1,9 @@
 import { createSlice ,nanoid} from "@reduxjs/toolkit";
 import { ROLES } from "../constants/roles";
-
+const savedTransactions = JSON.parse(localStorage.getItem("transactions"));
 const initialState = {
  
-  transactions: [{ id: nanoid(), date:Date.now(), amount: 1000000, category: "salary", type: "income" },
+  transactions: savedTransactions || [{ id: nanoid(), date:Date.now(), amount: 1000000, category: "salary", type: "income" },
     { id: nanoid(), date:Date.now(), amount: 500000, category: "rent", type: "expense" }],
   role:ROLES.VIEWER,
   searchTerm:""
