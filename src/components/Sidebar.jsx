@@ -20,10 +20,10 @@ function Sidebar() {
           <li key={label}>
             <a
               href={href}
-              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-gray-600
+              className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-lg font-medium text-gray-600
                          hover:bg-white hover:text-gray-900 hover:shadow-sm transition"
             >
-              <Icon size={16} className="text-gray-400" />
+              <Icon size={18} className="text-gray-400" />
               {label}
             </a>
           </li>

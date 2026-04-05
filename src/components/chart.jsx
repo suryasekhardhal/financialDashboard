@@ -10,7 +10,7 @@ function Chart() {
         amount: transaction.type === "income" ? transaction.amount : -transaction.amount,
     }));
     if(chartdata.length === 0) {
-        return <p>No transactions to display.</p>;
+        return <p className="text-lg font-bold">No transactions to display.</p>;
     }
 
   return (

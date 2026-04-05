@@ -29,12 +29,11 @@ function Insights() {
         Insights
       </h2>
 
-      {/* Breakdown */}
       <div className="bg-white border border-gray-100 rounded-2xl shadow-md p-5">
-        <h3 className="text-sm font-bold text-gray-800 mb-4">Expense Breakdown</h3>
+        <h3 className="text-lg font-bold text-gray-800 mb-4">Expense Breakdown</h3>
 
         {Object.keys(categoryTotals).length === 0 ? (
-          <p className="text-center text-gray-400 text-sm py-4">No expenses recorded.</p>
+          <p className="text-center text-gray-400 text-lg py-4">No expenses recorded.</p>
         ) : (
           <div className="space-y-3">
             {Object.entries(categoryTotals)
@@ -44,8 +43,8 @@ function Insights() {
                 return (
                   <div key={category}>
                     <div className="flex items-center justify-between mb-1">
-                      <span className="text-sm text-gray-700 font-medium">{category}</span>
-                      <span className="text-sm font-semibold text-gray-800">
+                      <span className="text-lg text-gray-700 font-medium">{category}</span>
+                      <span className="text-lg font-semibold text-gray-800">
                         ₹{total.toFixed(2)}
                       </span>
                     </div>
@@ -62,13 +61,12 @@ function Insights() {
         )}
       </div>
 
-      {/* Highlight */}
       {maxCategory && (
         <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-5 rounded-2xl shadow-md flex items-center justify-between">
           <div>
             <div className="flex items-center gap-1.5 mb-1">
               <TrendingUp size={14} className="opacity-70" />
-              <p className="text-xs font-semibold opacity-70 uppercase tracking-wider">
+              <p className="text-lg font-semibold opacity-70 uppercase tracking-wider">
                 Highest Expense
               </p>
             </div>

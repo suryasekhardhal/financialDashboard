@@ -33,11 +33,11 @@ function AddTransactionForm() {
   };
 
   const inputClass =
-    "w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-blue-400 focus:border-transparent focus:bg-white outline-none transition";
+    "w-full pl-10 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-lg text-gray-800 placeholder-gray-800 focus:ring-2 focus:ring-blue-400 focus:border-transparent focus:bg-white outline-none transition";
 
   return (
-    <div className="max-w-md mx-auto">
-      <h2 className="text-2xl font-bold text-gray-900 mb-5 tracking-tight">
+    <div className="max-w-2xl mx-auto">
+      <h2 className="text-2xl text-center font-bold text-gray-900 mb-5 tracking-tight dark:text-white">
         New Transaction
       </h2>
 
@@ -45,9 +45,8 @@ function AddTransactionForm() {
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-2xl shadow-md border border-gray-100 space-y-4"
       >
-        {/* Date */}
-        <div className="relative">
-          <Calendar className="absolute left-3 top-3 text-gray-300" size={17} />
+        <div className="relative w-full ">
+          <Calendar className="absolute left-3 top-3 text-gray-800" size={17} />
           <input
             type="date"
             value={date}
@@ -56,9 +55,8 @@ function AddTransactionForm() {
           />
         </div>
 
-        {/* Amount */}
         <div className="relative">
-          <IndianRupee className="absolute left-3 top-3 text-gray-300" size={17} />
+          <IndianRupee className="absolute left-3 top-3 text-gray-800" size={17} />
           <input
             type="number"
             value={amount}
@@ -68,9 +66,8 @@ function AddTransactionForm() {
           />
         </div>
 
-        {/* Category */}
         <div className="relative">
-          <Tag className="absolute left-3 top-3 text-gray-300" size={17} />
+          <Tag className="absolute left-3 top-3 text-gray-800" size={17} />
           <input
             type="text"
             value={category}
@@ -80,7 +77,6 @@ function AddTransactionForm() {
           />
         </div>
 
-        {/* Type Toggle */}
         <div>
           <p className="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">
             Type

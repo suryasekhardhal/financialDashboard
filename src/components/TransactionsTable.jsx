@@ -18,13 +18,12 @@ function TransactionsTable() {
   );
 
   return (
-    <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between px-5 py-4 border-b border-gray-100 gap-3">
-        <h2 className="text-base font-bold text-gray-900 tracking-tight">
+    <div className="bg-white rounded-2xl shadow-md border border-gray-100 overflow-hidden dark:bg-gray-800">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between px-5 py-4 border-b border-gray-100 gap-3 ">
+        <h2 className="text-base font-bold text-gray-900 tracking-tight dark:text-gray-200 text-lg">
           Transactions
         </h2>
-        <div className="relative w-full md:w-64">
+        <div className="relative w-full md:w-74">
           <Search className="absolute left-3 top-2.5 text-gray-300" size={15} />
           <input
             type="text"
@@ -37,11 +36,10 @@ function TransactionsTable() {
         </div>
       </div>
 
-      {/* Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto dark:bg-gray-800">
         <table className="w-full text-sm">
           <thead>
-            <tr className="bg-gray-50 text-xs font-semibold uppercase tracking-wider text-gray-400">
+            <tr className="bg-gray-50 text-lg font-semibold uppercase tracking-wider text-gray-400 dark:bg-gray-700 dark:text-white">
               <th className="py-3 px-5 text-left">Date</th>
               <th className="py-3 px-5 text-left">Amount</th>
               <th className="py-3 px-5 text-left">Category</th>
@@ -51,19 +49,19 @@ function TransactionsTable() {
               )}
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-50">
+          <tbody className="divide-y divide-gray-50 ">
             {filteredTransactions.map((t) => (
               <tr key={t.id} className="hover:bg-gray-50/60 transition">
-                <td className="py-3 px-5 text-gray-500 text-xs">
+                <td className="py-3 px-5 text-gray-500 text-lg dark:text-gray-200">
                   {new Date(t.date).toLocaleDateString("en-IN")}
                 </td>
-                <td className="py-3 px-5 font-semibold text-gray-800">
+                <td className="py-3 px-5 text-lg font-bold text-gray-800 dark:text-gray-200">
                   ₹{t.amount.toFixed(2)}
                 </td>
-                <td className="py-3 px-5 text-gray-600">{t.category}</td>
+                <td className="py-3 px-5 text-lg text-gray-600 dark:text-gray-300">{t.category}</td>
                 <td className="py-3 px-5">
                   <span
-                    className={`px-2.5 py-1 rounded-full text-xs font-semibold ${
+                    className={`px-2.5 py-1 rounded-full text-lg font-semibold ${
                       t.type === "income"
                         ? "bg-emerald-50 text-emerald-600"
                         : "bg-rose-50 text-rose-500"
