@@ -16,7 +16,7 @@ function Chart() {
   return (
     <>
     <h2>Chart</h2>
-    <div className="w-full h-[300px]">
+    <div className="w-full h-[300px] p-4 bg-white dark:bg-gray-800 rounded-lg">
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={chartdata} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
