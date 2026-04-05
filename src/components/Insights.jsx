@@ -1,90 +1,82 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { TrendingUp } from "lucide-react";
 
 function Insights() {
   const transactions = useSelector((state) => state.finance.transactions);
+
   const categoryTotals = {};
-  transactions.forEach(transaction => {
-    if(transaction.type === "expense"){
-      categoryTotals[transaction.category] = (categoryTotals[transaction.category] || 0) + transaction.amount;
+  transactions.forEach((t) => {
+    if (t.type === "expense") {
+      categoryTotals[t.category] = (categoryTotals[t.category] || 0) + t.amount;
     }
   });
+
   let maxCategory = "";
   let maxAmount = 0;
-  for (const category in categoryTotals) {
-    if (categoryTotals[category] > maxAmount) {
-      maxAmount = categoryTotals[category];
-      maxCategory = category;
+  for (const cat in categoryTotals) {
+    if (categoryTotals[cat] > maxAmount) {
+      maxAmount = categoryTotals[cat];
+      maxCategory = cat;
     }
   }
 
-  return (
-    <div className="space-y-6">
+  const totalExpense = Object.values(categoryTotals).reduce((a, b) => a + b, 0);
 
-      {/* Header */}
-      <h2 className="text-2xl font-bold text-gray-800 tracking-tight">
+  return (
+    <div className="space-y-4">
+      <h2 className="text-sm font-semibold uppercase tracking-widest text-gray-400">
         Insights
       </h2>
 
-      {/* Category Card */}
-      <div className="bg-white/80 backdrop-blur-md border border-gray-200 p-6 rounded-2xl shadow-xl">
-        
-        <h3 className="text-md font-semibold text-gray-700 mb-4">
-          Expense Breakdown
-        </h3>
+      {/* Breakdown */}
+      <div className="bg-white border border-gray-100 rounded-2xl shadow-md p-5">
+        <h3 className="text-sm font-bold text-gray-800 mb-4">Expense Breakdown</h3>
 
-        <div className="space-y-4">
-          {Object.entries(categoryTotals).map(([category, total]) => (
-            
-            <div
-              key={category}
-              className="flex items-center justify-between p-3 rounded-lg hover:bg-gray-50 transition"
-            >
-              <span className="font-medium text-gray-700">
-                {category}
-              </span>
+        {Object.keys(categoryTotals).length === 0 ? (
+          <p className="text-center text-gray-400 text-sm py-4">No expenses recorded.</p>
+        ) : (
+          <div className="space-y-3">
+            {Object.entries(categoryTotals)
+              .sort((a, b) => b[1] - a[1])
+              .map(([category, total]) => {
+                const pct = totalExpense > 0 ? (total / totalExpense) * 100 : 0;
+                return (
+                  <div key={category}>
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-sm text-gray-700 font-medium">{category}</span>
+                      <span className="text-sm font-semibold text-gray-800">
+                        ₹{total.toFixed(2)}
+                      </span>
+                    </div>
+                    <div className="h-1.5 bg-gray-100 rounded-full overflow-hidden">
+                      <div
+                        className="h-full bg-gradient-to-r from-blue-400 to-indigo-500 rounded-full transition-all duration-500"
+                        style={{ width: `${pct}%` }}
+                      />
+                    </div>
+                  </div>
+                );
+              })}
+          </div>
+        )}
+      </div>
 
-              <span className="text-sm font-semibold text-gray-800">
-                ₹{total.toFixed(2)}
-              </span>
+      {/* Highlight */}
+      {maxCategory && (
+        <div className="bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-5 rounded-2xl shadow-md flex items-center justify-between">
+          <div>
+            <div className="flex items-center gap-1.5 mb-1">
+              <TrendingUp size={14} className="opacity-70" />
+              <p className="text-xs font-semibold opacity-70 uppercase tracking-wider">
+                Highest Expense
+              </p>
             </div>
-
-          ))}
+            <p className="text-lg font-bold">{maxCategory}</p>
+          </div>
+          <p className="text-2xl font-bold">₹{maxAmount.toFixed(2)}</p>
         </div>
-
-        {Object.keys(categoryTotals).length === 0 && (
-          <p className="text-center text-gray-500 mt-4">
-            No expenses recorded.
-          </p>
-        )}
-      </div>
-
-      {/* Highlight Card */}
-      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-6 rounded-2xl shadow-lg flex items-center justify-between">
-        
-        <div>
-          <h3 className="text-sm opacity-80">
-            Category with Highest Expense
-          </h3>
-
-          {maxCategory ? (
-            <p className="text-lg font-semibold">
-              {maxCategory}
-            </p>
-          ) : (
-            <p className="text-sm opacity-80">
-              No expenses recorded.
-            </p>
-          )}
-        </div>
-
-        {maxCategory && (
-          <p className="text-xl font-bold">
-            ₹{maxAmount.toFixed(2)}
-          </p>
-        )}
-      </div>
-
+      )}
     </div>
   );
 }
