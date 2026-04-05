@@ -5,10 +5,6 @@ This project helps users track financial activity, visualize spending patterns, 
 
 ---
 
-## 🚀 Live Demo
-
-👉 https://rococo-semifreddo-2d79c1.netlify.app/
-
 ## 📂 Repository
 
 👉 https://github.com/suryasekhardhal/financialDashboard
@@ -112,6 +108,8 @@ src/
  │   ├── AddTransactionForm.jsx
  │   ├── Insights.jsx
  │   ├── Chart.jsx
+ |   |__Sidebar.jsx
+ |   |  
  │
  ├── pages/
  │   ├── Dashboard.jsx
